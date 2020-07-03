@@ -13,7 +13,7 @@ data class Request(
 data class Response(val status: Int, val headers: Map<String, String>, val body: Data?, val contentType: String?)
 
 interface Router {
-    // TODO: handle asynchronously (add suspend)
+    // TODO: handle asynchronously (add suspend, should work in Kotlin Native > 1.4-M2)
     fun handleRequest(request: Request): Response
 }
 
