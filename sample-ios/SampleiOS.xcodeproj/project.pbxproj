@@ -13,12 +13,12 @@
 		C141B62F23EF0AAE003AAE22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C141B62E23EF0AAE003AAE22 /* Assets.xcassets */; };
 		C141B63223EF0AAE003AAE22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C141B63123EF0AAE003AAE22 /* Preview Assets.xcassets */; };
 		C141B63523EF0AAE003AAE22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C141B63323EF0AAE003AAE22 /* LaunchScreen.storyboard */; };
-		C17070A4241708AB00A35D8A /* mockttp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17070A3241708AB00A35D8A /* mockttp.framework */; };
-		C17070A6241709CA00A35D8A /* mockttp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C17070A3241708AB00A35D8A /* mockttp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C17070A8241709EC00A35D8A /* GCDWebServers.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C17070A7241709EC00A35D8A /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C17070AA2422D74300A35D8A /* ContributorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17070A92422D74300A35D8A /* ContributorsView.swift */; };
 		C17E09C524AF756700BB0A33 /* sharedMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17E09C424AF756700BB0A33 /* sharedMock.framework */; };
 		C17E09C624AF756700BB0A33 /* sharedMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C17E09C424AF756700BB0A33 /* sharedMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1C6B0D724AFABEB0062B742 /* mokttp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C6B0D624AFABEB0062B742 /* mokttp.framework */; };
+		C1C6B0D824AFABEB0062B742 /* mokttp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C1C6B0D624AFABEB0062B742 /* mokttp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,9 +28,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C1C6B0D824AFABEB0062B742 /* mokttp.framework in CopyFiles */,
 				C17E09C624AF756700BB0A33 /* sharedMock.framework in CopyFiles */,
 				C17070A8241709EC00A35D8A /* GCDWebServers.framework in CopyFiles */,
-				C17070A6241709CA00A35D8A /* mockttp.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,11 +45,10 @@
 		C141B63123EF0AAE003AAE22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C141B63423EF0AAE003AAE22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C141B63623EF0AAE003AAE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C157091B23EF6050003481FB /* sharedTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sharedTests.framework; path = "../sample-sharedTests/build/bin/iOSSimulator/debugFramework/sharedTests.framework"; sourceTree = "<group>"; };
-		C17070A3241708AB00A35D8A /* mockttp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mockttp.framework; path = ../sharedCode/build/bin/iosX64/debugFramework/mockttp.framework; sourceTree = "<group>"; };
 		C17070A7241709EC00A35D8A /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = ../Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
 		C17070A92422D74300A35D8A /* ContributorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsView.swift; sourceTree = "<group>"; };
 		C17E09C424AF756700BB0A33 /* sharedMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sharedMock.framework; path = "../sample-sharedCode/build/bin/iosX64/debugFramework/sharedMock.framework"; sourceTree = "<group>"; };
+		C1C6B0D624AFABEB0062B742 /* mokttp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mokttp.framework; path = ../library/build/bin/iosX64/debugFramework/mokttp.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C17070A4241708AB00A35D8A /* mockttp.framework in Frameworks */,
 				C17E09C524AF756700BB0A33 /* sharedMock.framework in Frameworks */,
+				C1C6B0D724AFABEB0062B742 /* mokttp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +107,9 @@
 		C157091A23EF604F003481FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1C6B0D624AFABEB0062B742 /* mokttp.framework */,
 				C17070A7241709EC00A35D8A /* GCDWebServers.framework */,
 				C17E09C424AF756700BB0A33 /* sharedMock.framework */,
-				C17070A3241708AB00A35D8A /* mockttp.framework */,
-				C157091B23EF6050003481FB /* sharedTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,7 +199,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "cd \"$PROJECT_DIR/..\"\n./gradlew mockttp-core:linkDebugFrameworkIosX64 sample-sharedCode:linkDebugFrameworkIosX64\n";
+			shellScript = "cd \"$PROJECT_DIR/..\"\n./gradlew mokttp:linkDebugFrameworkIosX64 sample-sharedCode:linkDebugFrameworkIosX64\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -354,7 +352,7 @@
 				DEVELOPMENT_TEAM = A3ZT87L5Y5;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../sharedCode/build/bin/iOSX64/debugFramework",
+					"$(PROJECT_DIR)/../library/build/bin/iOSX64/debugFramework",
 					"$(PROJECT_DIR)/../sample-sharedCode/build/bin/iOSX64/debugFramework",
 				);
 				INFOPLIST_FILE = SampleiOS/Info.plist;
@@ -378,7 +376,7 @@
 				DEVELOPMENT_TEAM = A3ZT87L5Y5;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../sharedCode/build/bin/iOSX64/debugFramework",
+					"$(PROJECT_DIR)/../library/build/bin/iOSX64/debugFramework",
 					"$(PROJECT_DIR)/../sample-sharedCode/build/bin/iOSX64/debugFramework",
 				);
 				INFOPLIST_FILE = SampleiOS/Info.plist;

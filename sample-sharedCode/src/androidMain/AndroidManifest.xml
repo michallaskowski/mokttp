@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="dev.michallaskowski.mockttp.sample.shared">
+<manifest package="dev.michallaskowski.mokttp.sample.shared">
     <application/>
 </manifest>

@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.lifecycleScope
-import dev.michallaskowski.mockttp.*
-import dev.michallaskowski.mockttp.sample.shared.MockServer
+import dev.michallaskowski.mokttp.*
+import dev.michallaskowski.mokttp.sample.shared.MockServer
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*

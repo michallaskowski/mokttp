@@ -1,4 +1,4 @@
-package dev.michallaskowski.mockttp
+package dev.michallaskowski.mokttp
 
 expect class Data
 expect fun Data(fromString: String): Data

@@ -1,6 +1,6 @@
-package dev.michallaskowski.mockttp.sample.shared
+package dev.michallaskowski.mokttp.sample.shared
 
-import dev.michallaskowski.mockttp.*
+import dev.michallaskowski.mokttp.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.list
 import kotlinx.serialization.json.Json

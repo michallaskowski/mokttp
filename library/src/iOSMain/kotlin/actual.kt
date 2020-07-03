@@ -1,4 +1,4 @@
-package dev.michallaskowski.mockttp
+package dev.michallaskowski.mokttp
 
 import gcdWebServer.*
 import platform.Foundation.*

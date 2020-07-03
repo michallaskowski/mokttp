@@ -11,9 +11,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/sample-android" />
             <option value="$PROJECT_DIR$/sample-sharedCode" />
-            <option value="$PROJECT_DIR$/sharedCode" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

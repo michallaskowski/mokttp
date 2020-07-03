@@ -1,4 +1,4 @@
-package dev.michallaskowski.mockttp
+package dev.michallaskowski.mokttp
 
 import okhttp3.Headers.Companion.toHeaders
 import okhttp3.mockwebserver.Dispatcher

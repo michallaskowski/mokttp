@@ -8,7 +8,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId 'dev.michallaskowski.mockttp.sample.android'
+        applicationId 'dev.michallaskowski.mokttp.sample.android'
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
@@ -49,7 +49,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
 
-    implementation project(':mockttp-core')
+    implementation project(':mokttp')
     implementation project(':sample-sharedCode')
 
     testImplementation 'junit:junit:4.13'

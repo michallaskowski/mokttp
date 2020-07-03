@@ -33,7 +33,7 @@ kotlin {
         ios('ios') {
             binaries {
                 framework {
-                    baseName = "mockttp"
+                    baseName = "mokttp"
                     embedBitcode("disable")
                     linkerOpts("-F$projectDir/../Carthage/Build/iOS")
                 }

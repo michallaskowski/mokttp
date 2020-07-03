@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftUI
-import mockttp
+import mokttp
 import sharedMock
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

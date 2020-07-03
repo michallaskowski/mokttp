@@ -1,5 +1,5 @@
-include ':mockttp-core'
-project(':mockttp-core').projectDir = file('./sharedCode')
+include ':mokttp'
+project(':mokttp').projectDir = file('./library')
 
 include ':sample-android'
 include ':sample-sharedCode'
