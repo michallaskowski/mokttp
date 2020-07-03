@@ -19,13 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var commonMockServer: MockServer?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView(didTap: { [weak self] environment in
-//            self?.presentList()
+        let contentView = EnvironmentPickerView(didTap: { [weak self] environment in
             self?.presentContributors(in: environment)
         })
         let contentViewController = UIHostingController(rootView: contentView)
@@ -37,22 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
-    }
-
-    private func presentSwiftUIList() {
-        let listView = ListView(didTapBack: {
-            self.window?.rootViewController?.dismiss(animated: true)
-        })
-        let listViewController = UIHostingController(rootView: listView)
-        self.window?.rootViewController?.present(listViewController, animated: true, completion: nil)
-    }
-
-    private func presentList() {
-        let listViewController = ListViewController()
-        listViewController.didTapBack = {
-            listViewController.dismiss(animated: true, completion: nil)
-        }
-        self.window?.rootViewController?.present(listViewController, animated: true, completion: nil)
     }
 
     private func presentContributors(in environment: Environment) {
@@ -96,9 +74,7 @@ private final class MockingRouter: Router {
             let responseBody = try! JSONSerialization.data(withJSONObject: [
                 ["login": "test", "contributions": 1]
             ], options: [])
-
             return Response(status: 200, headers: [:], body: responseBody, contentType: "application/json")
-
         } else {
             return Response(status: 404, headers: [:], body: nil, contentType: nil)
         }

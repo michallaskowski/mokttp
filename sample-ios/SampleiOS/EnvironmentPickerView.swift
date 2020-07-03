@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-// navigation works once on simulators till xcode11.4
+// navigation works once on simulators till xcode11.4, and it is back on 11.5
 // https://stackoverflow.com/questions/59279176/navigationlink-works-only-for-once
 
 enum Environment: String, Hashable {
