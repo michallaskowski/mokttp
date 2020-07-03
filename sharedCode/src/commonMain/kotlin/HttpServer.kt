@@ -1,6 +1,8 @@
 package dev.michallaskowski.mockttp
 
 expect class Data
+expect fun Data(fromString: String): Data
+expect fun Data.asString(): String
 
 data class Request(
     val method: String?,
@@ -15,7 +17,7 @@ interface Router {
     fun handleRequest(request: Request): Response
 }
 
-expect class HttpServer {
+expect class HttpServer() {
     var router: Router?
     fun start(port: Int)
 }

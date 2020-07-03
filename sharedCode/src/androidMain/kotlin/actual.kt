@@ -8,6 +8,12 @@ import okhttp3.mockwebserver.RecordedRequest
 import okio.Buffer
 
 actual typealias Data = Buffer
+actual fun Data(fromString: String): Data {
+    return Buffer().writeUtf8(fromString)
+}
+actual fun Data.asString(): String {
+    return readUtf8()
+}
 
 private class DispatcherImpl: Dispatcher() {
     var router: Router? = null
@@ -33,7 +39,7 @@ private class DispatcherImpl: Dispatcher() {
 
 }
 
-actual class HttpServer() {
+actual class HttpServer actual constructor() {
     private val dispatcher = DispatcherImpl()
     private val mockWebServer = MockWebServer()
     actual fun start(port: Int) {

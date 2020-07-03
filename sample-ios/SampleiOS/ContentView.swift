@@ -13,6 +13,7 @@ import SwiftUI
 
 enum Environment: String, Hashable {
     case mocked = "http://localhost:8080"
+    case sharedMock = "http://localhost:8081"
     case original = "http://api.github.com"
 }
 
@@ -24,6 +25,7 @@ struct ContentView: View {
         VStack {
             Picker(selection: $environment, label: Text("Choose environment")) {
                 Text("mocked").tag(Environment.mocked)
+                Text("shared mock").tag(Environment.sharedMock)
                 Text("original").tag(Environment.original)
             }.pickerStyle(SegmentedPickerStyle())
 

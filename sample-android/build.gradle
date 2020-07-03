@@ -28,6 +28,7 @@ android {
     packagingOptions {
         exclude 'META-INF/LICENSE.md'
         exclude 'META-INF/LICENSE-notice.md'
+        exclude 'META-INF/kotlinx-serialization-runtime.kotlin_module'
     }
 }
 
@@ -49,11 +50,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
 
     implementation project(':mockttp-core')
+    implementation project(':sample-sharedCode')
 
     testImplementation 'junit:junit:4.13'
-
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-//    androidTestImplementation project(':sample-sharedTests')
 }

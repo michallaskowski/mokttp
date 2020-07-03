@@ -6,20 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.lifecycleScope
-import dev.michallaskowski.mockttp.HttpServer
-import dev.michallaskowski.mockttp.Request
-import dev.michallaskowski.mockttp.Response
-import dev.michallaskowski.mockttp.Router
+import dev.michallaskowski.mockttp.*
+import dev.michallaskowski.mockttp.sample.shared.MockServer
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.list
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import okio.Buffer
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,16 +31,16 @@ class MainActivity : AppCompatActivity() {
                     selectedEnv = Environment.MOCKED
                     startMockServer()
                 }
+                environment_shared_mock.id -> {
+                    selectedEnv = Environment.SHARED_MOCK
+                    startCommonMockServer()
+                }
                 else -> selectedEnv = Environment.ORIGINAL
             }
             val goToListIntent = Intent(this, ContributorsActivity::class.java)
             goToListIntent.putExtra("environment", selectedEnv)
             startActivity(goToListIntent)
         }
-    }
-
-    private fun navigate() {
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -64,6 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var httpServer: HttpServer? = null
+    private var commonHttpServer: MockServer? = null
 
     private fun startMockServer() {
         if (httpServer != null) {
@@ -77,15 +74,26 @@ class MainActivity : AppCompatActivity() {
             httpServer?.start(8080)
         }
     }
+
+    private fun startCommonMockServer() {
+        if (commonHttpServer != null) {
+            return
+        }
+
+        commonHttpServer = MockServer()
+        lifecycleScope.launch(Dispatchers.Default) {
+            commonHttpServer?.start(8081)
+        }
+    }
 }
 
 private class MockingRouter: Router {
     override fun handleRequest(request: Request): Response {
         if (request.method == "GET" && request.path?.startsWith("/repos/") == true) {
-            val data = Json(JsonConfiguration.Default).stringify(
+            val data = Json(JsonConfiguration.Stable).stringify(
                 Model.serializer().list,
                 listOf(Model("test", 42)))
-            return Response(200, emptyMap(), Buffer().writeUtf8(data), "application/json")
+            return Response(200, emptyMap(), Data(data), "application/json")
         } else {
             return Response(404, emptyMap(), null, null)
         }

@@ -1,0 +1,65 @@
+apply plugin: 'kotlin-multiplatform'
+apply plugin: 'com.android.library'
+apply plugin: 'kotlinx-serialization'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion = '29.0.2'
+
+    sourceSets {
+        getByName("main") {
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+            java.srcDirs("src/androidMain/kotlin")
+            res.srcDirs("src/androidMain/res")
+        }
+    }
+}
+
+kotlin {
+    targets {
+        ios('ios') {
+            binaries {
+                framework {
+                    baseName = "sharedMock"
+                    embedBitcode("disable")
+                    linkerOpts("-F$projectDir/../Carthage/Build/iOS")
+                }
+            }
+        }
+
+        fromPreset(presets.android, 'android')
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
+            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.20.0"
+            implementation project(':mockttp-core')
+        }
+
+        iosMain {
+            dependencies {
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:0.20.0"
+            }
+        }
+
+        androidMain {
+            dependencies {
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
+
+            }
+        }
+    }
+}

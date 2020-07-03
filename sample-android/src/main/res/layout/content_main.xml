@@ -26,6 +26,12 @@
             android:text="Mocked" />
 
         <RadioButton
+            android:id="@+id/environment_shared_mock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shared Mock" />
+
+        <RadioButton
             android:id="@+id/environment_original"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

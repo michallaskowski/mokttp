@@ -9,12 +9,14 @@
 import UIKit
 import SwiftUI
 import mockttp
+import sharedMock
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
     private var mockServer: HttpServer?
+    private var commonMockServer: MockServer?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -54,9 +56,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func presentContributors(in environment: Environment) {
-        if environment == .mocked {
+        switch environment {
+        case .mocked:
             setupMockServer()
+        case .sharedMock:
+            setupCommonMockServer()
+        case .original:
+            break
         }
+
         let contributorsView = ContributorsView(environment: environment)
         let contributorsViewController = UIHostingController(rootView: contributorsView)
         self.window?.rootViewController?.present(contributorsViewController, animated: true, completion: nil)
@@ -70,6 +78,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mockServer = HttpServer()
         mockServer?.router = MockingRouter()
         mockServer?.start(port: 8080)
+    }
+
+    private func setupCommonMockServer() {
+        guard commonMockServer == nil else {
+            return
+        }
+
+        commonMockServer = MockServer()
+        commonMockServer?.start(port: 8081)
     }
 }
 

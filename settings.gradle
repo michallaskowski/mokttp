@@ -2,3 +2,4 @@ include ':mockttp-core'
 project(':mockttp-core').projectDir = file('./sharedCode')
 
 include ':sample-android'
+include ':sample-sharedCode'

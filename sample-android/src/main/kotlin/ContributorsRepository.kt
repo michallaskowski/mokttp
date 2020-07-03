@@ -14,7 +14,7 @@ import java.lang.Exception
 data class Model(val login: String, val contributions: Int)
 
 enum class Environment {
-    MOCKED, ORIGINAL
+    MOCKED, SHARED_MOCK, ORIGINAL
 }
 
 class ContributorsRepository(val environment: Environment) {
@@ -23,6 +23,7 @@ class ContributorsRepository(val environment: Environment) {
     private fun url(): String {
         val baseUrl = when(environment) {
             Environment.MOCKED -> "http://localhost:8080"
+            Environment.SHARED_MOCK -> "http://localhost:8081"
             Environment.ORIGINAL -> "https://api.github.com"
         }
         return "$baseUrl/repos/michallaskowski/kuiks/contributors"

@@ -8,8 +8,18 @@ import kotlin.native.concurrent.freeze
 
 actual typealias Data = NSData
 
+@Suppress("CAST_NEVER_SUCCEEDS")
+actual fun Data(fromString: String): Data {
+    return (fromString as NSString).dataUsingEncoding(NSUTF8StringEncoding)!!
+}
+
+@Suppress("CAST_NEVER_SUCCEEDS")
+actual fun Data.asString(): String {
+    return NSString.create(this, NSUTF8StringEncoding)!! as String
+}
+
 @Suppress("UNCHECKED_CAST")
-actual class HttpServer {
+actual class HttpServer actual constructor() {
     private val httpServer = GCDWebServer()
     actual fun start(port: Int) {
         httpServer.startWithPort(port.toULong(), null)
