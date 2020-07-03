@@ -1,0 +1,3 @@
+language = Objective-C
+headers = GCDWebServers.h
+linkerOpts = -framework GCDWebServers -framework Foundation

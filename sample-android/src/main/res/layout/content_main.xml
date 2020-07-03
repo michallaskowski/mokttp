@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <RadioGroup
+        android:id="@+id/environment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:checkedButton="@id/environment_mocked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/make_call">
+
+        <RadioButton
+            android:id="@+id/environment_mocked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mocked" />
+
+        <RadioButton
+            android:id="@+id/environment_original"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Original" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/make_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="make_call"
+        android:text="Go make that call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
