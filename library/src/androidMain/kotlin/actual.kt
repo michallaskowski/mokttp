@@ -32,6 +32,8 @@ private class DispatcherImpl: Dispatcher() {
 
                 if (it.body != null) {
                     setBody(it.body)
+                } else {
+                    setHeader("Content-Length", 0)
                 }
             }
         } ?: MockResponse()
