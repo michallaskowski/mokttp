@@ -19,7 +19,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Tests
-        run: bash ./gradlew mokttp:testDebugUnitTest
+        run: bash ./gradlew library:testDebugUnitTest
 
   ios_tests:
     name: iOS Tests
@@ -32,4 +32,4 @@ jobs:
       - name: Boot simulator
         run: xcrun simctl boot "iPhone 8"
       - name: Tests
-        run: ./gradlew mokttp:iosTest
+        run: ./gradlew library:iosTest

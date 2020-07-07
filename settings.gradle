@@ -1,5 +1,3 @@
-include ':mokttp'
-project(':mokttp').projectDir = file('./library')
-
+include ':library'
 include ':sample-android'
 include ':sample-sharedCode'
