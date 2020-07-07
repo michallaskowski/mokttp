@@ -49,7 +49,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
 
-    implementation project(':mokttp')
+    implementation project(':library')
     implementation project(':sample-sharedCode')
 
     testImplementation 'junit:junit:4.13'

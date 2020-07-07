@@ -199,7 +199,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "cd \"$PROJECT_DIR/..\"\n./gradlew mokttp:linkDebugFrameworkIosX64 sample-sharedCode:linkDebugFrameworkIosX64\n";
+			shellScript = "cd \"$PROJECT_DIR/..\"\n./gradlew library:linkDebugFrameworkIosX64 sample-sharedCode:linkDebugFrameworkIosX64\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
