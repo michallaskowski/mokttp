@@ -38,15 +38,9 @@ kotlin {
                     embedBitcode("disable")
                     linkerOpts("-F$projectDir/../Carthage/Build/iOS")
                 }
-                getTest("DEBUG").linkerOpts("-F../Carthage/Build/iOS", "-framework", "GCDWebServers")
-//                getTest("DEBUG").linkerOpts.add("-framework GCDWebServers".toString())
-//                getTest("DEBUG").linkerOpts.add("-F../Carthage/Build/iOS".toString())
-//                getTest("DEBUG").freeCompilerArgs.add("-framework GCDWebServers".toString())
+                getTest("DEBUG").linkerOpts("-F$projectDir/../Carthage/Build/iOS", "-framework", "GCDWebServers")
             }
 
-//            [compilations.main, compilations.test].each {
-//                it.cinterops {
-//            }
             compilations.main.cinterops {
                 gcdWebServer {
                     defFile("gcdWebServer.def")
@@ -73,7 +67,7 @@ kotlin {
                 implementation 'org.jetbrains.kotlin:kotlin-test-common'
                 implementation 'org.jetbrains.kotlin:kotlin-test-annotations-common'
                 implementation 'io.ktor:ktor-client-core:1.3.2'
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5-native-mt'
             }
         }
 
@@ -87,7 +81,7 @@ kotlin {
 
         androidTest {
             dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.7'
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.5-native-mt'
                 implementation 'androidx.test.ext:junit:1.1.1'
                 implementation 'org.robolectric:robolectric:4.3.1'
                 implementation 'org.jetbrains.kotlin:kotlin-test'
@@ -98,7 +92,7 @@ kotlin {
 
         iosTest {
             dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-native:1.3.7'
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-native:1.3.5-native-mt'
                 implementation 'io.ktor:ktor-client-ios:1.3.2'
             }
         }

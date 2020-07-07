@@ -33,7 +33,7 @@ class HttpServerTest: BaseTest() {
                 if (request.path != "/test") {
                     return Response(404, emptyMap(), null, null)
                 }
-                return Response(200, emptyMap(), Data("test"), null)
+                return Response(200, emptyMap(), Data("test"), "text/plain")
             }
         }
 
