@@ -49,13 +49,20 @@ actual class HttpServer actual constructor() {
                     val request = Request(gcdRequest.method, path, headers, body)
 
                     val response = newRouter.handleRequest(request)
+                    val gcdResponse: GCDWebServerResponse
                     if (response.body != null) {
-                        GCDWebServerDataResponse(response.body, response.contentType ?: "")
+                        gcdResponse = GCDWebServerDataResponse(response.body, response.contentType ?: "")
                     } else {
-                        val gcdResponse = GCDWebServerResponse()
+                        gcdResponse = GCDWebServerResponse()
                         gcdResponse.statusCode = response.status.toLong()
                         gcdResponse
                     }
+
+                    response.headers.forEach {
+                        gcdResponse.setValue(it.value, it.key)
+                    }
+
+                    gcdResponse
                 }
 
                 httpServer.addHandlerWithMatchBlock(
