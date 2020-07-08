@@ -25,6 +25,10 @@ actual class HttpServer actual constructor() {
         httpServer.startWithPort(port.toULong(), null)
     }
 
+    actual fun stop() {
+        httpServer.stop()
+    }
+
     actual var router: Router? = null
         set(newRouter) {
             field = newRouter
