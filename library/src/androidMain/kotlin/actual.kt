@@ -49,6 +49,10 @@ actual class HttpServer actual constructor() {
         mockWebServer.start(port)
     }
 
+    actual fun stop() {
+        mockWebServer.shutdown()
+    }
+
     actual var router: Router?
         get() = dispatcher.router
         set(newRouter) {

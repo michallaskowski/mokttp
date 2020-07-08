@@ -20,4 +20,5 @@ interface Router {
 expect class HttpServer() {
     var router: Router?
     fun start(port: Int)
+    fun stop()
 }

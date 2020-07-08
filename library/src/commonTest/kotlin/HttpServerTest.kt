@@ -22,7 +22,7 @@ class HttpServerTest: BaseTest() {
 
     @AfterTest
     fun teardown() = runTest {
-        // todo: server close
+        server.stop()
         client.close()
     }
 
@@ -40,9 +40,29 @@ class HttpServerTest: BaseTest() {
         server.start(8080)
 
         val response = client.get<String>("http://localhost:8080/test")
-        assertEquals(response, "test")
+        assertEquals("test", response)
 
         val httpResponse = client.get<HttpResponse>("http://localhost:8080/notTest")
-        assertEquals(httpResponse.status, HttpStatusCode.NotFound)
+        assertEquals(HttpStatusCode.NotFound, httpResponse.status)
+    }
+
+    @Test
+    fun returnsHeaders() = runTest {
+        server.router = object: Router {
+            override fun handleRequest(request: Request): Response {
+                return Response(
+                    200,
+                    mapOf("customHeader" to "customHeaderValue"),
+                    Data("test"),
+                    "text/plain"
+                )
+            }
+        }
+
+        server.start(8080)
+
+        val httpResponse = client.get<HttpResponse>("http://localhost:8080/anything")
+        assertEquals( HttpStatusCode.OK, httpResponse.status)
+        assertEquals("customHeaderValue", httpResponse.headers["customHeader"])
     }
 }
