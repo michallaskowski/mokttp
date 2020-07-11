@@ -33,7 +33,7 @@ struct EnvironmentPickerView: View {
                 self.didTap?(self.environment)
             }, label: {
                 Text("Go make that call")
-            }).accessibility(identifier: "show_list")
+            }).accessibility(identifier: "contributors")
         }
     }
 }

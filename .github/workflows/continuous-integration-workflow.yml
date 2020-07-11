@@ -58,3 +58,5 @@ jobs:
         run: xcrun simctl boot "iPhone 8"
       - name: Tests
         run: ./gradlew library:iosTest
+      - name: UI tests
+        run: xcodebuild test -project sample-ios/SampleiOS.xcodeproj -scheme SampleiOS -destination "name=iPhone 8" -testPlan UITest

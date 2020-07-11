@@ -19,7 +19,21 @@
 		C17E09C624AF756700BB0A33 /* sharedMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C17E09C424AF756700BB0A33 /* sharedMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1C6B0D724AFABEB0062B742 /* mokttp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C6B0D624AFABEB0062B742 /* mokttp.framework */; };
 		C1C6B0D824AFABEB0062B742 /* mokttp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C1C6B0D624AFABEB0062B742 /* mokttp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1E5C38424BA2AED0050E663 /* HttpStubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E5C38324BA2AED0050E663 /* HttpStubTests.swift */; };
+		C1E5C38B24BA2C4A0050E663 /* mokttp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C6B0D624AFABEB0062B742 /* mokttp.framework */; };
+		C1E5C38E24BA35750050E663 /* mokttp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C1C6B0D624AFABEB0062B742 /* mokttp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1E5C38F24BA358D0050E663 /* GCDWebServers.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C17070A7241709EC00A35D8A /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1E5C38624BA2AED0050E663 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C141B61D23EF0AAB003AAE22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C141B62423EF0AAB003AAE22;
+			remoteInfo = SampleiOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C17070A5241709B600A35D8A /* CopyFiles */ = {
@@ -31,6 +45,17 @@
 				C1C6B0D824AFABEB0062B742 /* mokttp.framework in CopyFiles */,
 				C17E09C624AF756700BB0A33 /* sharedMock.framework in CopyFiles */,
 				C17070A8241709EC00A35D8A /* GCDWebServers.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E5C38D24BA356C0050E663 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C1E5C38F24BA358D0050E663 /* GCDWebServers.framework in CopyFiles */,
+				C1E5C38E24BA35750050E663 /* mokttp.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +74,10 @@
 		C17070A92422D74300A35D8A /* ContributorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsView.swift; sourceTree = "<group>"; };
 		C17E09C424AF756700BB0A33 /* sharedMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sharedMock.framework; path = "../sample-sharedCode/build/bin/iosX64/debugFramework/sharedMock.framework"; sourceTree = "<group>"; };
 		C1C6B0D624AFABEB0062B742 /* mokttp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mokttp.framework; path = ../library/build/bin/iosX64/debugFramework/mokttp.framework; sourceTree = "<group>"; };
+		C1E5C38124BA2AED0050E663 /* SampleiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1E5C38324BA2AED0050E663 /* HttpStubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpStubTests.swift; sourceTree = "<group>"; };
+		C1E5C38524BA2AED0050E663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1E5C38C24BA35390050E663 /* UITest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITest.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +90,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1E5C37E24BA2AED0050E663 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1E5C38B24BA2C4A0050E663 /* mokttp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		C141B61C23EF0AAB003AAE22 = {
 			isa = PBXGroup;
 			children = (
+				C1E5C38C24BA35390050E663 /* UITest.xctestplan */,
 				C141B62723EF0AAB003AAE22 /* SampleiOS */,
+				C1E5C38224BA2AED0050E663 /* SampleiOSUITests */,
 				C141B62623EF0AAB003AAE22 /* Products */,
 				C157091A23EF604F003481FB /* Frameworks */,
 			);
@@ -77,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				C141B62523EF0AAB003AAE22 /* SampleiOS.app */,
+				C1E5C38124BA2AED0050E663 /* SampleiOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +154,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C1E5C38224BA2AED0050E663 /* SampleiOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C1E5C38324BA2AED0050E663 /* HttpStubTests.swift */,
+				C1E5C38524BA2AED0050E663 /* Info.plist */,
+			);
+			path = SampleiOSUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,18 +185,41 @@
 			productReference = C141B62523EF0AAB003AAE22 /* SampleiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C1E5C38024BA2AED0050E663 /* SampleiOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1E5C38A24BA2AED0050E663 /* Build configuration list for PBXNativeTarget "SampleiOSUITests" */;
+			buildPhases = (
+				C1E5C37D24BA2AED0050E663 /* Sources */,
+				C1E5C37E24BA2AED0050E663 /* Frameworks */,
+				C1E5C37F24BA2AED0050E663 /* Resources */,
+				C1E5C38D24BA356C0050E663 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1E5C38724BA2AED0050E663 /* PBXTargetDependency */,
+			);
+			name = SampleiOSUITests;
+			productName = SampleiOSUITests;
+			productReference = C1E5C38124BA2AED0050E663 /* SampleiOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C141B61D23EF0AAB003AAE22 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Michal Laskowski";
 				TargetAttributes = {
 					C141B62423EF0AAB003AAE22 = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					C1E5C38024BA2AED0050E663 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = C141B62423EF0AAB003AAE22;
 					};
 				};
 			};
@@ -165,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				C141B62423EF0AAB003AAE22 /* SampleiOS */,
+				C1E5C38024BA2AED0050E663 /* SampleiOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -177,6 +250,13 @@
 				C141B63523EF0AAE003AAE22 /* LaunchScreen.storyboard in Resources */,
 				C141B63223EF0AAE003AAE22 /* Preview Assets.xcassets in Resources */,
 				C141B62F23EF0AAE003AAE22 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E5C37F24BA2AED0050E663 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +295,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1E5C37D24BA2AED0050E663 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1E5C38424BA2AED0050E663 /* HttpStubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1E5C38724BA2AED0050E663 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C141B62423EF0AAB003AAE22 /* SampleiOS */;
+			targetProxy = C1E5C38624BA2AED0050E663 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C141B63323EF0AAE003AAE22 /* LaunchScreen.storyboard */ = {
@@ -391,6 +487,46 @@
 			};
 			name = Release;
 		};
+		C1E5C38824BA2AED0050E663 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../library/build/bin/iOSX64/debugFramework";
+				INFOPLIST_FILE = SampleiOSUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.michallaskowski.mokttp.SampleiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SampleiOS;
+			};
+			name = Debug;
+		};
+		C1E5C38924BA2AED0050E663 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../library/build/bin/iOSX64/debugFramework";
+				INFOPLIST_FILE = SampleiOSUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.michallaskowski.mokttp.SampleiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SampleiOS;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -408,6 +544,15 @@
 			buildConfigurations = (
 				C141B63A23EF0AAE003AAE22 /* Debug */,
 				C141B63B23EF0AAE003AAE22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1E5C38A24BA2AED0050E663 /* Build configuration list for PBXNativeTarget "SampleiOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1E5C38824BA2AED0050E663 /* Debug */,
+				C1E5C38924BA2AED0050E663 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
