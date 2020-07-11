@@ -21,8 +21,27 @@ actual fun Data.asString(): String {
 @Suppress("UNCHECKED_CAST")
 actual class HttpServer actual constructor() {
     private val httpServer = GCDWebServer()
+
     actual fun start(port: Int) {
-        httpServer.startWithPort(port.toULong(), null)
+        memScoped {
+            val errorRef = alloc<ObjCObjectVar<NSError?>>()
+            val started = httpServer.startWithOptions(
+                mapOf(
+                    GCDWebServerOption_BindToLocalhost to true,
+                    GCDWebServerOption_AutomaticallySuspendInBackground to false,
+                    GCDWebServerOption_Port to port.toULong()
+                ),
+                errorRef.ptr
+            )
+
+            if (errorRef.value != null) {
+                throw RuntimeException("Failed to start GCDWebServer on port $port, reason:" +
+                        errorRef.value!!.localizedDescription)
+            }
+            if (!started) {
+                throw RuntimeException("Failed to start GCDWebServer on port $port")
+            }
+        }
     }
 
     actual fun stop() {
@@ -55,7 +74,6 @@ actual class HttpServer actual constructor() {
                     } else {
                         gcdResponse = GCDWebServerResponse()
                         gcdResponse.statusCode = response.status.toLong()
-                        gcdResponse
                     }
 
                     response.headers.forEach {
