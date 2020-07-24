@@ -3,23 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'com.android.library'
 
-publishing {
-    publications {
-        kotlinMultiplatform.artifactId = "mokttp-common"
-    }
-    repositories {
-        maven {
-            name = "central"
-            def snapshotRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-            def stagingRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-            url = version.endsWith('SNAPSHOT') ? snapshotRepoUrl : stagingRepoUrl
-            credentials {
-                username = System.getenv("MAVEN_USERNAME")
-                password = System.getenv("MAVEN_PASSWORD")
-            }
-        }
-    }
-}
+apply from: rootProject.file("gradle/publish.gradle")
 
 android {
     compileSdkVersion 29
