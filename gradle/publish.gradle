@@ -1,4 +1,5 @@
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 publishing {
     publications.all { publication ->
@@ -41,4 +42,16 @@ publishing {
             }
         }
     }
+}
+
+signing {
+    required { isReleaseBuild() }
+    if (isReleaseBuild()) {
+        useInMemoryPgpKeys(System.getenv("PGP_SIGNING_KEY"), System.getenv("PGP_SIGNING_PASSWORD"))
+        sign publishing.publications
+    }
+}
+
+def isReleaseBuild() {
+    return !scmVersion.version.contains("SNAPSHOT")
 }
